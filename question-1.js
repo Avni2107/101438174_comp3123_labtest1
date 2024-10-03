@@ -1,16 +1,18 @@
 function lowerCaseWords(arr) {
     return new Promise((resolve, reject) => {
-        try {
-            const filtered = arr.filter(item => typeof item === 'string');
-            const lowerCased = filtered.map(item => item.toLowerCase());
-            resolve(lowerCased);
-        } catch (error) {
-            reject('Error: Unable to process array');
-        }
+      if (Array.isArray(arr)) {
+        const filteredArray = arr.filter(item => typeof item === 'string')
+                                .map(item => item.toLowerCase());
+        resolve(filteredArray);
+      } else {
+        reject('Input must be an array');
+      }
     });
-}
-
-// Test
-lowerCaseWords([1, 'APPLE', 'bAnAnA', true, 'Orange'])
-    .then(result => console.log(result))
-    .catch(error => console.log(error));
+  }
+  
+  const mixedArray = ['PIZZA', 10, true, 25, false, 'Wings'];
+  
+  lowerCaseWords(mixedArray)
+    .then(result => console.log(result)) // Output: ['pizza', 'wings']
+    .catch(error => console.error(error));
+  
