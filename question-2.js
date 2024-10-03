@@ -15,10 +15,10 @@ const resolvedPromise = () => {
   };
   
   resolvedPromise()
-    .then(result => console.log(result)) // Output: {message: 'resolved success!'}
+    .then(result => console.log(result)) 
     .catch(error => console.error(error));
   
   rejectedPromise()
     .then(result => console.log(result))
-    .catch(error => console.error(error.message)); // Output: error: rejected failure!
+    .catch(error => console.error(error.message)); 
   
